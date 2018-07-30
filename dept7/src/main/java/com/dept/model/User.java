@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,17 +13,16 @@ import java.util.Date;
  * Description:
  */
 @Entity
+
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @JsonIgnore
+
     private int age;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
-    @JsonIgnore
+
     private Date createDate;
     private String name;
-    @JsonIgnore
     private String remarks;
 
 
@@ -46,6 +42,9 @@ public class User {
         this.age = age;
     }
 
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @Column(name="createDate")
     public Date getCreateDate() {
         return createDate;
     }

@@ -3,12 +3,14 @@ package com.dept.controller;
 import com.dept.model.People;
 import com.dept.model.User;
 import com.dept.service.IUserServer;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author WH1707008
@@ -23,7 +25,9 @@ public class UserController {
 
     @RequestMapping("/findUser")
     public List<User> findUser(){
-      return  userServer.findUser();
+        PageHelper.startPage(1, 3);
+        List<User> userList = userServer.findUser();
+        return userList;
     }
 
     @RequestMapping("/findById")
@@ -39,6 +43,22 @@ public class UserController {
   @RequestMapping("/saveUser")
     public int savePeople(User user) throws Exception{
         return  userServer.saveUser(user);
+    }
+
+    @RequestMapping(value = "/username/listPage")
+    public  Map<String, Object> listPage(
+            @RequestParam(value="username")String username,
+            @RequestParam(value="pageNumber")int pageNumber,
+            @RequestParam(value="pageSize")int pageSize) {
+        PageHelper.startPage(pageNumber, pageSize);
+        List<User> userBean = userServer.findByName(username);
+        List<User> userBean1 = userServer.findByName(username);
+        //return userBean;
+        Map<String,Object> map=new HashMap<>(16);
+        map.put("rows", userBean);
+        map.put("total", userBean1.size());
+        return map;
+
     }
 
 

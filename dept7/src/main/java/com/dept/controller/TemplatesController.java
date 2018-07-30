@@ -26,4 +26,6 @@ public class TemplatesController {
         return "helloFtl";
     }
 
+
+
 }

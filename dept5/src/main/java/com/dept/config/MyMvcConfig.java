@@ -81,6 +81,7 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
      * @return
      */
     @Bean
+    @Override
     public HandlerMapping viewControllerHandlerMapping(){
         return super.viewControllerHandlerMapping();
     }
