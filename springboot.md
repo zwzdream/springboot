@@ -166,7 +166,7 @@ spring-boot使用jsp作为模板、集成mybatis参照项目springboot1
 ![](./restPost.png)
 
 
-
+另外需要注意application.properties里面配置jpa生成表字段的策略
 
 
 
