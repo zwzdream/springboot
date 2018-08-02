@@ -175,12 +175,14 @@ spring-boot使用jsp作为模板、集成mybatis参照项目springboot1
 
 dept8
 
-  整合redis集群
+  整合redis集群（redis-cluster）
 
-spring boot 不同版本，配置不太一样，这里的spring boot 是2.0.3
+spring boot 不同版本，配置不太一样，这里的spring boot 是2.0.3.RELEASE
 
+附：gitee上面有人传了一个spring boot 1.5.9 的redis集群样例
 
+ [spring cluster 1.5.9.RELEASE](https://gitee.com/zhenhai_zheng/springboot_rediscluster.git)
 
+与源码对应的csdn博客
 
-
-
+[spring boot整合Redis集群](https://blog.csdn.net/baidu_41669919/article/details/79148203)
