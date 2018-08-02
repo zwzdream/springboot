@@ -35,4 +35,5 @@ public interface IUserServer {
      * @return
      */
     int saveUser(User user) throws Exception;
+
 }

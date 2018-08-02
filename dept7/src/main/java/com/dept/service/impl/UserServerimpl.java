@@ -4,9 +4,10 @@ import com.dept.dao.IUserDao;
 import com.dept.model.User;
 import com.dept.service.IUserServer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.JedisCluster;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,18 +29,39 @@ public class UserServerimpl implements IUserServer {
     @Resource
     private IUserDao userDao;
 
+    /**
+     * 测试缓存
+     * @return
+     */
+
     @Override
+    @Cacheable(value="findUser")
     public List<User> findUser() {
+        System.out.println("无缓存的时候调用这里");
         return userDao.findUser();
     }
 
+    /**
+     * 在对应的mapperxml文件，开启二级缓存，
+     * Cache Hit Ratio表示缓存命中率。开启二级缓存后，每执行一次查询，系统都会计算一次二级缓存的命中率。第一次查询也是先从缓存中查询，只不过缓存中一定是没有的。
+     * 所以会再从DB中查询。由于二级缓存中不存在该数据，所以命中率为0.但第二次查询是从二级缓存中读取的，所以这一次的命中率为1/2=0.5。
+     * 当然，若有第三次查询，则命中率为1/3=0.66
+     * @param id
+     * @return
+     */
     @Override
     public User findById(int id) {
-        return userDao.findById(id);
+       User user=  userDao.findById(id);
+        System.out.println(user);
+       User user2=  userDao.findById(id);
+        System.out.println(user2);
+       return user;
     }
 
     @Override
+    @Cacheable(value = "findByName")
     public List<User> findByName(String name) {
+        System.out.println("无缓存的时候调用这里");
         return userDao.findByName(name);
     }
 
@@ -59,4 +81,8 @@ public class UserServerimpl implements IUserServer {
 
         return i;
     }
+
+
+
+
 }

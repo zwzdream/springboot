@@ -1,11 +1,14 @@
 package com.dept.config;
 
+
+import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * @author WH1707008
@@ -23,10 +26,13 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class GlobalDefaultExceptionHandler {
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler({Exception.class})
     @ResponseBody
-    public String defaultExceptionHandler(HttpServletRequest request,Exception e){
+    public String defaultExceptionHandler(HttpServletRequest request, Exception e){
         //返回String
-        return "对不起，服务器繁忙，请稍后再试！";
+        //return "对不起，服务器繁忙，请稍后再试！";
+        return e.toString();
     }
+
+
 }

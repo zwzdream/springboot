@@ -22,7 +22,8 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan("com.dept")
 public class MyMvcConfig extends WebMvcConfigurationSupport {
 
-    //配置 视图解析器
+    /**配置 视图解析器
+     */
     @Bean
     public InternalResourceViewResolver viewResolver(){
         InternalResourceViewResolver viewResolver=new InternalResourceViewResolver();
@@ -33,7 +34,7 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
     }
 
 
-    /* 配置静态资源映射，也可以在配置文件配置
+    /** 配置静态资源映射，也可以在配置文件配置
      * addResourceLocations指的是文件放置的目录，
      * addResourceHandler指的是对外暴露的访问路径
      * super.addResourceHandlers(registry);这段代码可以不要

@@ -1,13 +1,13 @@
 package com.dept.controller;
 
-import com.dept.model.People;
 import com.dept.model.User;
 import com.dept.service.IUserServer;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +60,7 @@ public class UserController {
         return map;
 
     }
+
 
 
 

@@ -165,8 +165,19 @@ spring-boot使用jsp作为模板、集成mybatis参照项目springboot1
 
 ![](./restPost.png)
 
-
 另外需要注意application.properties里面配置jpa生成表字段的策略
+
+
+
+整合redis单机版作为缓存
+
+
+
+dept8
+
+  整合redis集群
+
+spring boot 不同版本，配置不太一样，这里的spring boot 是2.0.3
 
 
 

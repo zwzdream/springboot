@@ -1,20 +1,18 @@
 package com.dept.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author WH1707008
  * @date 2018/7/26 11:05
- * Description:
+ * Description:  创建一个实体类User，实现Serializable接口，以实现序列化，便于后期I/O
  */
 @Entity
-
-public class User {
+public class User implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -68,4 +66,6 @@ public class User {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
+
 }

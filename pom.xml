@@ -16,6 +16,7 @@
       <module>dept5</module>
       <module>dept6</module>
       <module>dept7</module>
+    <module>dept8</module>
   </modules>
 
   <parent>
@@ -59,6 +60,14 @@
       <groupId>com.jolbox</groupId>
       <artifactId>bonecp-spring</artifactId>
       <version>0.8.0.RELEASE</version>
+    </dependency>
+
+
+   <!--google的工具包-->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>25.1-jre</version>
     </dependency>
 
 

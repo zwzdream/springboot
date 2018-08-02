@@ -9,6 +9,9 @@
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
     </resultMap>-->
+    <!--开启二级缓存-->
+    <cache/>
+
   <select id="findUser" resultType="com.dept.model.User">
         select * from user
     </select>
