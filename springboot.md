@@ -171,11 +171,15 @@ spring-boot使用jsp作为模板、集成mybatis参照项目springboot1
 
 整合redis单机版作为缓存
 
-
-
-dept8
+### dept8
 
   整合redis集群（redis-cluster）
+
+取消数据库自动配置
+
+````java
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class} )
+````
 
 spring boot 不同版本，配置不太一样，这里的spring boot 是2.0.3.RELEASE
 
