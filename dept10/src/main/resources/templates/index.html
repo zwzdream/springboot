@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test ws</title>
+</head>
+<body>
+Test ws
+<script type="text/javascript">
+    //定义websocket
+    var ws = new WebSocket("ws://localhost:8080/websocket");
+
+    //连接websocket
+    ws.onopen = function()
+    {
+        var num = Math.ceil(Math.random()*100);
+        var msg = 'userid='+num;
+        console.log("open and send message："+msg);
+        // 发送消息
+        ws.send(msg);
+    };
+
+    //接收消息
+    ws.onmessage = function(evt)
+    {
+        console.log("get message:"+evt.data)
+    };
+    //关闭连接
+    ws.onclose = function(evt)
+    {
+        console.log("WebSocketClosed!");
+    };
+    //发生异常
+    ws.onerror = function(evt)
+    {
+        console.log("WebSocketError!");
+    };
+
+</script>
+</body>
+</html>

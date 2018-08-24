@@ -201,3 +201,15 @@ spring boot 不同版本，配置不太一样，这里的spring boot 是2.0.3.RE
 
 
 
+### dept9
+
+  WebSocket为浏览器和服务器提供了双工异步通信的功能，即浏览器可以向服务器发送消息，服务器也可以向浏览器发送消息。（需要浏览器支持）
+
+```java
+Class：WebSocketConfig，WiselyMessage，WiselyResponse，WsController
+html:ws.html
+```
+
+
+
+页面控制类在类WebMvcConfig里面定义

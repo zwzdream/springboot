@@ -16,7 +16,9 @@
       <module>dept5</module>
       <module>dept6</module>
       <module>dept7</module>
-    <module>dept8</module>
+      <module>dept8</module>
+      <module>dept9</module>
+      <module>dept10</module>
   </modules>
 
   <parent>
