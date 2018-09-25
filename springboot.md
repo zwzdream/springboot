@@ -213,3 +213,16 @@ html:ws.html
 
 
 页面控制类在类WebMvcConfig里面定义
+
+
+
+
+
+### dept 10
+
+网上一个websocket列子，没有跑起来，但是源代码JavaWebSocket可以跑
+
+
+
+### dept11
+
