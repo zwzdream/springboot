@@ -61,7 +61,7 @@ public class SpringConfig {
 
    Spring MVC的定制配置需要我们配置的类继承一个WebMvcConfigurerAdapter类（但是我用的版本spring5显示已过时，我改用WebMvcConfigurationSupport类），并在此类使用@EnableWebMvc注解，来开启对Spring MVC的配置支持，这样我们就可以重写这个类的方法，完成我们的常用配置。如：
 
-  拦截器，视图解析器，试图跳转器
+  拦截器，视图解析器，视图跳转器
 
 
 
@@ -175,7 +175,7 @@ spring-boot使用jsp作为模板、集成mybatis参照项目springboot1
 
   整合redis集群（redis-cluster）
 
-取消数据库自动配置
+==取消数据库自动配置==
 
 ````java
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class} )

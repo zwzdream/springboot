@@ -18,7 +18,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
  * 2，注册STOMP协议的节点（endpoint），并映射指定的URL
  * 3，注册一个STOMP的endpoint，并指定使用SockJS协议
  * 4，配置消息代理(Message Broker)
- * 5，广播式应配置一个/topic消息代理
+ * 5，广播式应配置一个/topic消息代理   topic字符串可以自己更换
  */
 @Configuration
 @EnableWebSocketMessageBroker//1
