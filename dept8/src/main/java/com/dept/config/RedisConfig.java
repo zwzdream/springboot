@@ -54,7 +54,12 @@ public class RedisConfig {
     }
 
      /**
-     * 这个bean的作用没看出来，暂时注释起来
+     *
+      * 设置数据存入redis 的序列化方式
+      *  redisTemplate序列化默认使用的jdkSerializeable
+      *  存储二进制字节码，导致key会出现乱码，所以自定义序列化类
+      *
+      *  在这里没起作用，暂时注释起来
      */
    /* @Bean
     public RedisTemplate<Object,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory)throws Exception {
