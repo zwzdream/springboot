@@ -3,6 +3,7 @@ package com.dept.service.impl;
 import com.dept.dao.IUserDao;
 import com.dept.model.User;
 import com.dept.service.IUserServer;
+import com.dept.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -58,11 +59,38 @@ public class UserServerimpl implements IUserServer {
        return user;
     }
 
+    /**
+     * @Cacheable 注解会自动将方法返回结果保存至缓存
+     *     但是保存的数据是Binary，暂不清楚为什么没有使用RedisConfig配置
+     * @param name
+     * @return
+     */
     @Override
-    @Cacheable(value = "findByName")
+    @Cacheable(cacheNames = "users",key = "#p0")
     public List<User> findByName(String name) {
         System.out.println("无缓存的时候调用这里");
         return userDao.findByName(name);
+    }
+
+
+    /**
+     * 调用RedisUtils.set方法保存方法，会使用RedisConfig配置RedisTemplate的键值对生成策略
+     * @param name
+     * @return
+     */
+    @Override
+    public List<User> saveUsersByName(String name) {
+        List<User> users =null;
+        users=userDao.findByName(name);
+        RedisUtils.set(name, users);
+        return users;
+    }
+
+    @Override
+    public List<User> findByNameInRedis(String name) {
+        List<User> users =null;
+        users=(List<User>)RedisUtils.get(name);
+        return users;
     }
 
     @Override

@@ -171,6 +171,10 @@ spring-boot使用jsp作为模板、集成mybatis参照项目springboot1
 
 整合redis单机版作为缓存
 
+注意springboot1.0与2.0的CacheManager的配置方法不同
+
+参看下面文档：https://blog.csdn.net/guokezhongdeyuzhou/article/details/79789629
+
 ### dept8
 
   整合redis集群（redis-cluster）

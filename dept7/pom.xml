@@ -75,6 +75,11 @@
             <version>1.1.9</version>
         </dependency>
 
+        <!--引入该包会自动引入jackson依赖包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
 
         <!--加入redis依赖-->
@@ -92,6 +97,8 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
+
+
 
 
     </dependencies>

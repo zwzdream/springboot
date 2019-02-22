@@ -2,6 +2,7 @@ package com.dept.controller;
 
 import com.dept.model.User;
 import com.dept.service.IUserServer;
+import com.dept.utils.RedisUtils;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,10 +36,34 @@ public class UserController {
         return  userServer.findById(id);
     }
 
+    /**
+     * 根据名字查询User，并保存至缓存
+     * @param name
+     * @return
+     */
     @RequestMapping("/findByName")
     public List<User> findByName(String name){
         return  userServer.findByName(name);
     }
+
+    /**
+     * 向Redis取值，
+     * @return
+     */
+    @RequestMapping("/saveUsersByName")
+    public List<User> saveUsersByName(String name){
+        return  userServer.saveUsersByName(name);
+    }
+    /**
+     * 从Redis取值，验证findByName方法
+     * @param name
+     * @return
+     */
+    @RequestMapping("/findByNameInRedis")
+    public List<User> findByNameInRedis(String name){
+        return  userServer.findByNameInRedis(name);
+    }
+
 
   @RequestMapping("/saveUser")
     public int savePeople(User user) throws Exception{

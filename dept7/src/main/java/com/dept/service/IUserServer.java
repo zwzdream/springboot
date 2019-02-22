@@ -29,6 +29,10 @@ public interface IUserServer {
      */
     List<User> findByName(String name);
 
+    List<User> saveUsersByName(String name);
+
+    List<User> findByNameInRedis(String name);
+
     /**
      * 保存用户（id，name）
      * @param user
